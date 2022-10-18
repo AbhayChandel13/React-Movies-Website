@@ -10,6 +10,7 @@ const AppProvider = ({children}) => {
     const[isError, setIsError] = useState({show:"false",msg:""});
     const[query,setQuery] = useState("titanic");
     const getMovies = async(url)=>{
+        setIsLoading(true); 
         try {
             const res = await fetch(url);
             const data = await res.json();
@@ -17,12 +18,16 @@ const AppProvider = ({children}) => {
 
             if(data.Response === "True"){
                 setIsLoading(false);
+                setIsError({
+                    show:false,
+                    msg :"",
+                })
                 setMovie(data.Search);
             }
             else{
                 setIsError({
                     show:true,
-                    msg :data.error,
+                    msg :data.Error,
                 })
 
             }
@@ -38,7 +43,7 @@ const AppProvider = ({children}) => {
 
   let timerOut = setTimeout(()=>{
             getMovies(`${API_URL}a&s=${query}`);
-        },800);
+        },500);
        
         return()=>clearTimeout(timerOut);
     },[query])
