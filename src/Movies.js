@@ -20,7 +20,7 @@ const Movies = () => {
         const {imdbID,Title,Poster} = curMovie;
         const movieName = Title.substring(0,15) 
         return(
-          <NavLink to ={`movie//${imdbID}`}  key={imdbID}>
+          <NavLink to ={`movie/${imdbID}`}  key={imdbID}>
             <div className='card'>
               <div className='card-info'>
                 <h2>{movieName.length>=15 ? `${movieName}...`: movieName}</h2>
