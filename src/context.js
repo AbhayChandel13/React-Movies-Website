@@ -1,6 +1,6 @@
 import React,{useContext,useEffect,useState } from 'react';
 
-const API_URL = 'http://www.omdbapi.com/?apikey=d656472a&s=titanic';
+const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}a&s=titanic`;
 
 const AppContext =  React.createContext();
 
@@ -36,7 +36,7 @@ const AppProvider = ({children}) => {
         getMovies(API_URL);
     },[])
 
-    return <AppContext.Provider value={{isLoading,isError,movie}}> {children}</AppContext.Provider>;
+    return <AppContext.Provider value={{ isLoading, isError, movie }}> {children}</AppContext.Provider>;
 }
 
 const useGlobalContext = () =>{
