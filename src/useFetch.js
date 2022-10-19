@@ -7,6 +7,7 @@ const useFetch = (apiParams) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState({ show: "false", msg: "" });
   const [movie, setMovie] = useState(null);
+  //const [page, setpage] = useState(2);
 
   const getMovie = async (url) => {
     setIsLoading(true);

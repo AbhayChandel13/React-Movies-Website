@@ -1,15 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {useGlobalContext} from "./context";
 import { NavLink } from 'react-router-dom';
 
 const Movies = () => {
-  const {movie, isLoading} = useGlobalContext();
+  const {movie, isLoading,page,setPage} = useGlobalContext();
+  
+  const loadmore=()=>{
+    let newpage = page+1;
+    setPage(newpage);
+  }
 
+  const none=()=>{
+     let elem = document.getElementsByClassName("btn")
+     console.log(elem)
+     elem[0].style.display = "none"
+      }
+  
+  
+  console.log("Page No=",page);
   if(isLoading){
-    return(
-    
-        <div className='loading'> Loading ....</div>
-    
+    return(    
+        <div className='loading'> Loading ....</div>    
     )
   }
   return (
@@ -31,7 +42,9 @@ const Movies = () => {
         )
       })}
     </div>
-
+    <div>
+    {movie < 10 ?  none() : <button className='btn' onClick={loadmore}><h3>Load More..... </h3> </button> } 
+    </div>
     </section>
     </>
   )
