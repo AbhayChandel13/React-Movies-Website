@@ -33,15 +33,6 @@ const Movies = () => {
     </div>
 
     </section>
-
-
-      {/* {movie.map((curMovie)=>{
-        return(
-          <div key={curMovie.imdbID}> 
-            <h2>{curMovie.Title}</h2>
-          </div>
-        )
-      })} */}
     </>
   )
 }
