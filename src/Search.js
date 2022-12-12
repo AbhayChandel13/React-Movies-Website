@@ -20,7 +20,9 @@ const Search = () => {
           </div>
         </form>
         <div className="card-error">
+          
           <p>{isError.show && isError.msg}</p>
+
         </div>
       </section>
     </>
