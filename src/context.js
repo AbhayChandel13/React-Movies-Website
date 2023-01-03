@@ -6,7 +6,7 @@ const AppContext = React.createContext();
 // we are getting the children and that is app component in our case
 //add comment 
 //comment two
-//comment three
+
 const AppProvider = ({ children }) => {
   const [query, setQuery] = useState("hacker");
   const [page, setPage] = useState(1);
