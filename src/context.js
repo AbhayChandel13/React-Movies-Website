@@ -11,7 +11,9 @@ const AppProvider = ({ children }) => {
   const { isLoading, isError, movie } = useFetch(`&s=${query}&page=${page}`);
 
   return (
-    <AppContext.Provider value={{ query, movie, setQuery, isLoading, isError,page,setPage}}>
+    <AppContext.Provider
+      value={{ query, movie, setQuery, isLoading, isError, page, setPage }}
+    >
       {children}
     </AppContext.Provider>
   );
